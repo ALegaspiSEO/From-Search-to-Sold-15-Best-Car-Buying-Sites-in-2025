@@ -1,0 +1,190 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f3f4f6;
+    background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+    background-attachment: fixed;
+    background-size: cover;
+    color: #1f2937;
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+.slide-up {
+    animation: slideUp 1s ease-out forwards;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.header-bg {
+    background: linear-gradient(to right, #ea580c, #f97316);
+    color: #ffffff;
+    transform: translateY(-20px);
+    opacity: 0;
+    animation: slideInHeader 0.8s ease-out 0.3s forwards;
+    padding: 2rem 1rem;
+}
+
+@keyframes slideInHeader {
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.card {
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    margin: 0.5rem;
+    transform: translateX(-20px);
+    opacity: 0;
+    animation: slideInCard 0.5s ease-out forwards;
+    animation-delay: calc(0.1s * var(--card-index));
+}
+
+@keyframes slideInCard {
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(234, 88, 12, 0.2);
+}
+
+.card h2 {
+    transition: color 0.4s ease-in-out;
+}
+
+.card:hover h2 {
+    color: #ea580c;
+}
+
+.ripple-link {
+    position: relative;
+    transition: color 0.4s ease-in-out;
+}
+
+.ripple-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 50%;
+    background-color: #f97316;
+    transition: width 0.4s ease-in-out, left 0.4s ease-in-out;
+}
+
+.ripple-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.ripple-link:hover {
+    color: #f97316;
+    animation: ripple 0.8s ease-in-out;
+}
+
+@keyframes ripple {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.bg-gray-800 {
+    background-color: #1f2937;
+    transition: background-color 0.4s ease-in-out;
+}
+
+.bg-gray-800:hover {
+    background-color: #374151;
+}
+
+@media (max-width: 768px) {
+    .header-bg {
+        background: linear-gradient(to bottom, #ea580c, #f97316);
+        padding: 1.5rem 0.5rem;
+    }
+    .header-bg h1 {
+        font-size: 2rem;
+        line-height: 2.5rem;
+    }
+    .header-bg p {
+        font-size: 1rem;
+        line-height: 1.4rem;
+    }
+    .card {
+        margin: 0.5rem;
+        padding: 1rem;
+    }
+    .card h2 {
+        font-size: 1.25rem;
+    }
+    .card p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+    .container {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    section.mb-12 p {
+        font-size: 0.95rem;
+    }
+    section.mt-12 h2 {
+        font-size: 1.75rem;
+    }
+    section.mt-12 p, section.mt-12 ul li {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-bg {
+        padding: 1rem 0.5rem;
+    }
+    .header-bg h1 {
+        font-size: 1.75rem;
+        line-height: 2rem;
+    }
+    .header-bg p {
+        font-size: 0.9rem;
+        line-height: 1.3rem;
+    }
+    .card {
+        margin: 0.3rem;
+        padding: 0.75rem;
+    }
+    .card h2 {
+        font-size: 1.1rem;
+    }
+    .card p {
+        font-size: 0.85rem;
+        line-height: 1.3;
+    }
+    .container {
+        padding-left: 0.3rem;
+        padding-right: 0.3rem;
+    }
+    section.mb-12 p {
+        font-size: 0.9rem;
+    }
+    section.mt-12 h2 {
+        font-size: 1.5rem;
+    }
+    section.mt-12 p, section.mt-12 ul li {
+        font-size: 0.9rem;
+    }
+    footer {
+        padding: 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+footer {
+    transition: background-color 0.4s ease-in-out;
+}
